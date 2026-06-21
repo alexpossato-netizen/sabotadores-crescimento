@@ -869,7 +869,7 @@
     <div class="dsn-bridge" id="dsn-bridge">
       <div class="db-eyebrow">PRÓXIMO PASSO</div>
       <p id="dsn-bridge-text"></p>
-      <a class="db-cta" href="https://api.whatsapp.com/send?phone=5511999735300" target="_blank" id="dsn-bridge-cta">Quero saber mais sobre o DSN completo</a>
+      <a class="db-cta" href="https://api.whatsapp.com/send?phone=5511997917211&amp;text=&amp;source=&amp;data=" target="_blank" id="dsn-bridge-cta">Quero saber mais sobre a constelação de carreira</a>
     </div>
 
     <div class="cta-block">
@@ -1119,7 +1119,7 @@ function renderResults(){
   // Ponte para o DSN completo
   const principal = state.ranking[0];
   const secundario = state.ranking[1];
-  dsnBridgeText.innerHTML = `Seu principal padrão de bloqueio é o <b>${principal.perfil.nome}</b> (${principal.pct}%), associado a <b>${secundario.perfil.nome}</b> (${secundario.pct}%). Isso indica onde sua energia está sendo drenada antes mesmo de chegar ao seu projeto profissional. O próximo passo é realizar o <b>DSN &mdash; Diagnóstico Sistêmico de Negócios</b> completo, para mapear a origem desses bloqueios em cada área (força, lugar, fluxo) e construir seu plano de reorganização profissional.`;
+  dsnBridgeText.innerHTML = `Seu principal padrão de bloqueio é o <b>${principal.perfil.nome}</b> (${principal.pct}%), associado a <b>${secundario.perfil.nome}</b> (${secundario.pct}%). Isso indica onde sua energia está sendo drenada antes mesmo de chegar ao seu projeto profissional. O próximo passo é fazer uma <b>constelação de carreira</b> com Alex Possato, aprofundando nas origens dos bloqueios para construir seu plano de reorganização profissional.`;
 }
 
 function buildProfileCard(item, rankIndex){
@@ -1403,7 +1403,7 @@ function generatePDF(){
   doc.setFont('helvetica', 'normal');
   const principal = state.ranking[0];
   const secundario = state.ranking[1];
-  const bridgeMsg = `Seu principal padrão de bloqueio é o ${principal.perfil.nome} (${principal.pct}%), associado a ${secundario.perfil.nome} (${secundario.pct}%). O próximo passo é realizar o DSN — Diagnóstico Sistêmico de Negócios completo, para mapear a origem desses bloqueios e construir seu plano de reorganização profissional.`;
+  const bridgeMsg = `Seu principal padrão de bloqueio é o ${principal.perfil.nome} (${principal.pct}%), associado a ${secundario.perfil.nome} (${secundario.pct}%). O próximo passo é fazer uma constelação de carreira com Alex Possato, aprofundando nas origens dos bloqueios para construir seu plano de reorganização profissional.`;
   addWrappedText(doc, bridgeMsg, marginX + 14, y + 18, pageW - marginX*2 - 28, 13);
 
   doc.setFontSize(8.5);
