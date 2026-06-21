@@ -1395,16 +1395,30 @@ function generatePDF(){
   });
 
   // Rodapé final / bridge DSN
-  ensureSpace(90);
+  ensureSpace(110);
+  const bridgeBoxY = y;
   doc.setFillColor(...navy);
-  doc.rect(marginX, y, pageW - marginX*2, 70, 'F');
+  doc.rect(marginX, bridgeBoxY, pageW - marginX*2, 90, 'F');
   doc.setTextColor(255,255,255);
   doc.setFontSize(10.5);
   doc.setFont('helvetica', 'normal');
   const principal = state.ranking[0];
   const secundario = state.ranking[1];
   const bridgeMsg = `Seu principal padrão de bloqueio é o ${principal.perfil.nome} (${principal.pct}%), associado a ${secundario.perfil.nome} (${secundario.pct}%). O próximo passo é fazer uma constelação de carreira com Alex Possato, aprofundando nas origens dos bloqueios para construir seu plano de reorganização profissional.`;
-  addWrappedText(doc, bridgeMsg, marginX + 14, y + 18, pageW - marginX*2 - 28, 13);
+  let bridgeTextY = addWrappedText(doc, bridgeMsg, marginX + 14, bridgeBoxY + 18, pageW - marginX*2 - 28, 13);
+
+  bridgeTextY += 8;
+  const whatsappUrl = 'https://api.whatsapp.com/send?phone=5511997917211&text=&source=&data=';
+  doc.setFont('helvetica', 'bold');
+  doc.setTextColor(...gold);
+  const linkLabel = 'Agende sua constelação de carreira com Alex Possato clicando aqui';
+  doc.textWithLink(linkLabel, marginX + 14, bridgeTextY, { url: whatsappUrl });
+  doc.setDrawColor(...gold);
+  const linkWidth = doc.getTextWidth(linkLabel);
+  doc.line(marginX + 14, bridgeTextY + 2, marginX + 14 + linkWidth, bridgeTextY + 2);
+  doc.setFont('helvetica', 'normal');
+
+  y = bridgeBoxY + 90;
 
   doc.setFontSize(8.5);
   doc.setTextColor(140,140,140);
